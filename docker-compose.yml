@@ -91,6 +91,15 @@ services:
             - sail
         volumes:
             - 'sail-elasticsearch:/usr/share/elasticsearch/data:cached'
+    adminer:
+        image: adminer:latest
+        restart: always
+        environment:
+            ADMINER_DESIGN: 'hever'
+        ports:
+            - 9090:8080
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
